@@ -1,3 +1,5 @@
+/*hola que tal*/
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
@@ -14,7 +16,6 @@ int main(){
    inicializa_vector(v, N);
    imprime_vector(v, N);   
    printf("el promedio es %f\n", promedio(v, N) );
-      
    return 0;
 }
 
