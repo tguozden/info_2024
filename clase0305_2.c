@@ -8,7 +8,7 @@ void inicializa_mat(int mat[N][M]);
 int minimo_mat(int mat[N][M]);
 
 int main(){
-    int mat[4][5];
+    int mat[N][M];
 
     srand(clock());
     inicializa_mat(mat);
