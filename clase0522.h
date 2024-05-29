@@ -7,15 +7,24 @@ typedef struct {
    
 void carga_alumno(alumno_t *pepe){
    printf("ingrese nombre alumno: ");
-   scanf("%s", pepe[0].nombre);
+   scanf("%s", (*pepe).nombre);
    printf("ingrese apellido alumno: ");   
-   scanf("%s", pepe[0].apellido);
+   scanf("%s", (*pepe).apellido);
 }
 
-void carga_alumno_otra(alumno_t *pepe){
+
+void imprime_alumno(alumno_t pepe){
+
+   printf("nombre: %s\n", pepe.nombre);
+   printf("apellido: %s\n", pepe.apellido);
+}
+
+
+
+/*void carga_alumno(alumno_t *pepe){
    printf("ingrese nombre alumno: ");
    scanf("%s", pepe->nombre);
    printf("ingrese apellido alumno: ");   
    scanf("%s", pepe->apellido);
-}
+}*/
 
