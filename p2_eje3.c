@@ -2,6 +2,25 @@
 
 #include<stdio.h>
 
+int ordenado_piola(int vec[], int n){
+   int ord_c = 1;
+   int ord_d = 1;
+   
+   for(int i=0;i<n-1;i++){
+      if(signo*vec[i] > signo*vec[i+1])
+         ord_c = 0;
+      if(signo*vec[i] < signo*vec[i+1])
+         ord_d = 0;
+   }
+   
+   if(ord_c || ord_d)
+      return 1;
+   else
+      return 0;
+}
+
+
+
 int ordenado_sentido(int signo, int vec[], int n){
    int ord = 1;
    
