@@ -16,7 +16,7 @@ int cuenta_letra(char letra, char *cadena){
 
 int cuenta_letra_piola(char letra, char *cadena){
    int ncont = 0;
-  
+
    while(*cadena != '\0' ){
       if(cadena[i] == letra) ncont++;
       cadena++;
