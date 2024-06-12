@@ -20,12 +20,59 @@ void imprime_todas(meteo_t estaciones[], int n){
    }
 }
 
-int main(){
-   meteo_t estaciones[3] =     
-             {{1.1, 0 , "bariloche"    },
+int indice_temp_max(meteo_t estaciones[], int n){
+   int tmax = estaciones[0].temp;
+   int imax = 0;
+
+   for(int i=0; i<n; i++)
+      if(estaciones[i].temp > tmax){
+         tmax = estaciones[i].temp;
+         imax = i;
+      }
+   return imax;
+}
+
+float tmedia(meteo_t estaciones[], int n){
+   float tmedia = 0;
+   for(int i=0; i<n; i++)
+      tmedia += estaciones[i].temp;
+   tmedia /= n;
+   return tmedia;
+}
+
+int busca_sitio(char cadena[], meteo_t estaciones[], int n);
+
+int main(int argc, char *argv[]){
+   meteo_t estaciones[4] =
+             {{1.1, 1234 , "bariloche"    },
               {2  , 0 , "pto blest"    },
+              {6  , 0 , "pto panuelo"    },
               {0.5, 10, "refugio jacov"}};
-   imprime_todas(estaciones,3);
+
+   //imprime_todas(estaciones,3);
+   //int imax = indice_temp_max(estaciones, 3);
+   //imprime_meteo(estaciones[imax]);
+   //printf("tmedia = %f\n", tmedia(estaciones, 3));
+   int i0 = busca_sitio(argv[1], estaciones, 4);
+
+   printf("isitio = %d\n", i0);
+   imprime_meteo(estaciones[i0]);
 
    return 0;
+}
+int busca_sitio(char cadena[], meteo_t estaciones[], int n){
+   int isitio = -1;
+   int imatch;
+
+   for(int i =0; i<n; i++){
+      imatch=0;
+      for(int j=0;cadena[j]!='\0';j++)
+         if(estaciones[i].sitio[j] != cadena[j])
+            imatch++;
+      if(imatch == 0)
+         isitio = i;
+   }
+
+
+   return isitio;
 }
