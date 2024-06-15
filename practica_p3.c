@@ -21,7 +21,7 @@ void imprime_todas(meteo_t estaciones[], int n){
 }
 
 int indice_temp_max(meteo_t estaciones[], int n){
-   int tmax = estaciones[0].temp;
+   float tmax = estaciones[0].temp;
    int imax = 0;
 
    for(int i=0; i<n; i++)
@@ -31,6 +31,13 @@ int indice_temp_max(meteo_t estaciones[], int n){
       }
    return imax;
 }
+
+void temp_max(meteo_t estaciones[], int n){
+   int imax = indice_temp_max(estaciones, n);
+   imprime_meteo(estaciones[imax]);
+
+}
+
 
 float tmedia(meteo_t estaciones[], int n){
    float tmedia = 0;
@@ -53,11 +60,8 @@ int main(int argc, char *argv[]){
    //int imax = indice_temp_max(estaciones, 3);
    //imprime_meteo(estaciones[imax]);
    //printf("tmedia = %f\n", tmedia(estaciones, 3));
-   int i0 = busca_sitio(argv[1], estaciones, 4);
 
-   printf("isitio = %d\n", i0);
-   imprime_meteo(estaciones[i0]);
-
+   temp_max(estaciones, 4);
    return 0;
 }
 int busca_sitio(char cadena[], meteo_t estaciones[], int n){
